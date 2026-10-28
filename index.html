@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatma Zohra | Mathematics Educator & Specialist</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #334155;
+            --card-bg: #ffffff;
+            --primary-color: #1e3a8a;
+            --accent-color: #3b82f6;
+            --border-color: #e2e8f0;
+            --hero-bg: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            --hero-text: #ffffff;
+            --tag-bg: #eff6ff;
+            --tag-text: #1d4ed8;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #cbd5e1;
+            --card-bg: #1e293b;
+            --primary-color: #60a5fa;
+            --accent-color: #3b82f6;
+            --border-color: #334155;
+            --hero-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --hero-text: #f8fafc;
+            --tag-bg: #172554;
+            --tag-text: #93c5fd;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        header.hero {
+            background: var(--hero-bg);
+            color: var(--hero-text);
+            padding: 9rem 5% 5rem 5%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p.subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #1e3a8a;
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background-color: #f1f5f9;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: -3rem auto 3rem auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        section h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.75rem;
+        }
+
+        /* Summary */
+        .summary-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* Skills & Competencies Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Timeline (Education & Experience) */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2.35rem;
+            top: 0.25rem;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 3px solid var(--card-bg);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Experience Points */
+        .experience-list {
+            list-style-type: none;
+            margin-top: 0.75rem;
+        }
+
+        .experience-list li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .experience-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--card-bg);
+                border-bottom: 1px solid var(--border-color);
+                padding: 1.5rem 0;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="nav-brand">Fatma Zohra</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#competencies">Competencies</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode"><i class="fa-solid fa-moon"></i></button></li>
+        </ul>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <button class="theme-toggle mobile-theme" id="mobileThemeToggle" style="display:none;"><i class="fa-solid fa-moon"></i></button>
+            <div class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-avatar">FZ</div>
+        <h1>Fatma Zohra</h1>
+        <p class="subtitle">Mathematics Educator & Specialist</p>
+        <div class="hero-contact-info">
+            <span><i class="fa-solid fa-location-dot"></i> Darbhanga, Bihar, India</span>
+            <span><i class="fa-solid fa-phone"></i> +91 9905137283</span>
+            <span><i class="fa-solid fa-envelope"></i> sunflowersea320@gmail.com</span>
+        </div>
+        <a href="#contact" class="btn">Get in Touch</a>
+    </header>
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- About Section -->
+        <section id="about">
+            <h2><i class="fa-solid fa-user-pen"></i> Professional Summary</h2>
+            <p class="summary-text">
+                Dedicated and passionate Educator specializing in Mathematical Sciences with a strong academic background spanning postgraduate studies. Proven ability to translate complex mathematical concepts, algebra, calculus, and logical reasoning into clear, engaging lessons for students. Seeking a rewarding teaching position to foster analytical skills and academic excellence in students.
+            </p>
+        </section>
+
+        <!-- Competencies Section -->
+        <section id="competencies">
+            <h2><i class="fa-solid fa-brain"></i> Core Competencies & Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Teaching Pedagogy</h3>
+                    <div class="tag-container">
+                        <span class="tag">Teaching Pedagogy</span>
+                        <span class="tag">Interactive Learning</span>
+                        <span class="tag">Lesson Planning</span>
+                        <span class="tag">Student Engagement</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Mathematics Expertise</h3>
+                    <div class="tag-container">
+                        <span class="tag">Calculus</span>
+                        <span class="tag">Algebra</span>
+                        <span class="tag">Statistics</span>
+                        <span class="tag">Applied Math Sciences</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="tag-container">
+                        <span class="tag">Communication</span>
+                        <span class="tag">Classroom Management</span>
+                        <span class="tag">Problem Solving</span>
+                        <span class="tag">Analytical Thinking</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="tag-container">
+                        <span class="tag">English</span>
+                        <span class="tag">Hindi</span>
+                        <span class="tag">Urdu</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2023 - 2025</div>
+                    <div class="timeline-title">M.Sc. in Mathematical Sciences</div>
+                    <div class="timeline-desc">Completed on October 23, 2025</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2020 - 2023</div>
+                    <div class="timeline-title">B.Sc. in Mathematical Sciences</div>
+                    <div class="timeline-desc">Completed on August 24, 2023</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2018 - 2020</div>
+                    <div class="timeline-title">Intermediate (Class XII) - Physics, Chemistry, Mathematics (PCM)</div>
+                    <div class="timeline-desc">Completed on March 24, 2020</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2018</div>
+                    <div class="timeline-title">Matriculation (Class X) - General Subjects</div>
+                    <div class="timeline-desc">Completed on June 26, 2018</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching Experience Section -->
+        <section id="experience">
+            <h2><i class="fa-solid fa-chalkboard-user"></i> Teaching Experience & Strengths</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Specialization</div>
+                    <div class="timeline-title">Mathematics Instruction</div>
+                    <ul class="experience-list">
+                        <li>Expertise in simplifying complex mathematical concepts for secondary and higher secondary students.</li>
+                        <li>Skilled in structuring curriculum modules, practice problem sets, and interactive problem-solving sessions.</li>
+                        <li>Committed to fostering an inclusive, high-achievement environment focused on building strong quantitative fundamentals.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="text-align: center;">
+            <h2><i class="fa-solid fa-address-book"></i> Let's Connect</h2>
+            <p style="margin-bottom: 1.5rem;">I am actively looking for rewarding teaching opportunities. Reach out via email or phone!</p>
+            <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                <a href="mailto:sunflowersea320@gmail.com" class="btn" style="background-color: var(--primary-color); color: #fff;"><i class="fa-solid fa-envelope"></i> Send Email</a>
+                <a href="tel:+919905137283" class="btn" style="background-color: var(--accent-color); color: #fff;"><i class="fa-solid fa-phone"></i> Call Me</a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Fatma Zohra. All rights reserved. Designed for GitHub Pages.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Dark / Light Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Check for saved user preference
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        }
+    </script>
+</body>
+</html>
